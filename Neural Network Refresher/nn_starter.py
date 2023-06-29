@@ -82,4 +82,24 @@ class NeuralNetwork:
         return self.activation(x)*(1-self.activation(x))
     
 
-    def 
+    def forward_func(self, X):
+         hidden_0 = np.dot(X, self.w) + self.b
+         activate_0 = self.activation(hidden_0)
+         return activate_0
+
+
+    def backward_func(self, X, y_true):
+        """
+        The objective here is to calculate the gradients
+        """
+        hidden_0 = np.dot(X, self.w) + self.b
+        y_pred = self.forward(X)
+        dL_dpred = 2 *(y_pred - y_test)
+        dpred_dhidden_0 = self.activation(hidden_0)
+        dhidden0_db = 1
+        dhidden0_dw = X
+
+        dL_db = dL_dpred * dpred_dhidden_0 * dhidden0_db
+        dL_dw = dL_dpred * dpred_dhidden_0 * dhidden0_dw
+
+        return dL_db, dL_dw
