@@ -56,3 +56,30 @@ class NeuralNetwork:
     X_test: This is testing dataset without the output variable
     y_test: this is the output for bench marking the 
     """
+
+    def __init__(self, LR, X_train, y_train, X_test, y_test):
+        self.w = np.random.randn(X_train_scale[1])
+        self.b = np.random.randn()
+        self.LR = LR
+        self.X_train = X_train
+        self.y_train = y_train
+        self.X_test = X_test
+        self.y_test = y_test
+        self.L_train = []
+        self.L_test = []
+
+
+    def activation(self, x);
+        """
+        We will use sigmoid function as our activation
+        """
+        return 1 / (1+np.exp(-x))
+
+    def deactivation(self,x):
+        """
+        We are showing our sigmoid fucntion for the actiavtion is derived
+        """
+        return self.activation(x)*(1-self.activation(x))
+    
+
+    def 
