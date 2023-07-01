@@ -103,3 +103,27 @@ class NeuralNetwork:
         dL_dw = dL_dpred * dpred_dhidden_0 * dhidden0_dw
 
         return dL_db, dL_dw
+
+
+    def optimzer(self, dL_db, dL_dw):
+        """
+        Updating the weights
+        """
+        self.b = self.b - dL_db * self.LR
+        self.w = self.w - dL_dw * self.LR
+
+
+    def train(self, iterations):
+        # Picking random position
+
+        random_pos = np.random.randint(len(self.X_train))
+
+        # forward pass
+
+        y_train_true = self.X_train[random_pos]
+        y_train_pred =self.forward_func(self.X_train[random_pos])
+
+
+        # Calculating training losses
+
+        L = np.sum(np.square(y_train_pred - y_train_true)).self.L_train.append(L)
